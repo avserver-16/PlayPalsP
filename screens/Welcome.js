@@ -2,7 +2,7 @@ import React from "react";
 import Background from "./Background";
 import { ImageBackground,Text, View } from "react-native";
 import { useEffect } from "react";
-import { LinearGradient } from 'expo-linear-gradient';
+
 
 const Welcome=({navigation})=>{
     useEffect(() => {

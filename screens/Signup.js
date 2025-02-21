@@ -14,7 +14,7 @@ import moment from "moment";
 import Background from "./Background";
 import { useNavigation } from "@react-navigation/native"; 
 
-export default function SignUp() {
+export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,71 +24,56 @@ export default function SignUp() {
   const [passwordError, setPasswordError] = useState("");
   const [formError, setFormError] = useState("");
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
   const navigation = useNavigation(); 
-
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA0-9]{2,6}$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
   const handleSubmit = () => {
     if (!name || !email || !password || !dob || !gender) {
       setFormError("All fields must be filled out.");
       return;
     }
-
     if (!emailRegex.test(email)) {
       setEmailError("Please enter a valid email address.");
       return;
     } else {
       setEmailError("");
     }
-
     if (!passwordRegex.test(password)) {
       setPasswordError("Password must be at least 8 characters and include at least one letter and one number.");
       return;
     } else {
       setPasswordError("");
     }
-
     setFormError("");
     navigation.navigate("OtpVerification", { email, name });
   };
-
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
-
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
   };
-
   const handleConfirm = (date) => {
     setDob(moment(date).format("DD-MM-YYYY"));
     hideDatePicker();
   };
-
   return (
-    <Background>
+    <Background >
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollViewContainer}>
         <Text style={styles.title}>Sign Up</Text>
-
         <TextInput
           style={styles.input}
           placeholder="Full Name"
           value={name}
-          onChangeText={setName}
-        />
-
+          onChangeText={setName}/>
         <TextInput
           style={styles.input}
           placeholder="Email"
           keyboardType="email-address"
           value={email}
-          onChangeText={setEmail}
-        />
+          onChangeText={setEmail}/>
         {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
-
-        <TextInput
+ <TextInput
           style={styles.input}
           placeholder="Password"
           secureTextEntry
@@ -96,13 +81,11 @@ export default function SignUp() {
           onChangeText={setPassword}
         />
         {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
-
         <TouchableOpacity onPress={showDatePicker} style={styles.input}>
           <Text style={styles.dateText}>
             {dob ? dob : "Select Date of Birth"}
           </Text>
         </TouchableOpacity>
-
         <Text style={styles.sectionTitle}>Select Gender</Text>
         <Picker
           selectedValue={gender}
@@ -114,13 +97,10 @@ export default function SignUp() {
           <Picker.Item label="Female" value="female" />
           <Picker.Item label="Other" value="other" />
         </Picker>
-
         {formError ? <Text style={styles.error}>{formError}</Text> : null}
-
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+<TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
           <Text style={styles.submitButtonText}>Submit</Text>
         </TouchableOpacity>
-
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="date"
@@ -143,10 +123,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    //fontWeight: "bold",
     marginBottom: 30,
     color: "#fff",
-    marginTop: 20,
+    marginTop: 20,fontFamily:'Kanit_400Regular'
   },
   input: {
     width: 230,
@@ -158,24 +138,26 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     paddingHorizontal: 10,
-    justifyContent: "center",
+    justifyContent: "center",fontFamily:'Kanit_400Regular'
   },
   dateText: {
     fontSize: 16,
     color: "#fff",
     textAlign: "center",
-    lineHeight: 50,
+    lineHeight: 50,fontFamily:'Kanit_400Regular'
   },
   error: {
     color: "red",
     fontSize: 14,
     marginBottom: 10,
+    fontFamily:'Kanit_400Regular'
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: "600",
     marginBottom: 10,
     color: "#fff",
+    fontFamily:'Kanit_400Regular'
   },
   submitButton: {
     backgroundColor: "#4CAF50",
@@ -187,6 +169,7 @@ const styles = StyleSheet.create({
   submitButtonText: {
     color: "#fff",
     fontSize: 18,
-    fontWeight: "bold",
+    //fontWeight: "bold",
+    fontFamily:'Kanit_400Regular'
   },
 });

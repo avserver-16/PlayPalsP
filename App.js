@@ -11,7 +11,7 @@ SplashScreen.preventAutoHideAsync();
 import Welcome from "./screens/Welcome";
 import Login from "./screens/Login";
 import LangSport from "./screens/LangSport";
-import SignUp from "./screens/Signup";
+import Signup from "./screens/Signup";
 import OtpVerification from "./screens/OtpVerification";
 
 const Stack = createNativeStackNavigator();
@@ -37,7 +37,7 @@ export default function App() {
         <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="LangSport" component={LangSport} options={{ headerShown: false }} />
-        <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
+        <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="OtpVerification" component={OtpVerification} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>

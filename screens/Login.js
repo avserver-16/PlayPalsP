@@ -90,7 +90,7 @@ const handlePass=(text)=>{
         style={{backgroundColor:'#0091ff',width:300,height:60,alignItems:'center',justifyContent:'center',borderRadius:10,position:'absolute',bottom:100}}>
             <Text style={{fontFamily:'Kanit_400Regular',fontSize:24}}>Login</Text>
         </TouchableOpacity>
-        <Text style={{fontFamily:'Kanit_400Regular',color:'#ffffff80',fontSize:24,position:'absolute',bottom:10}}>Register<Text style={{color:'#0000007d',position:'absolute',fontSize:20}}> yourself !!!</Text></Text>
+        <Text style={{fontFamily:'Kanit_400Regular',color:'#ffffff80',fontSize:24,position:'absolute',bottom:10}} onPress={()=>{navigation.navigate('Signup')}} >Register<Text style={{color:'#0000007d',position:'absolute',fontSize:20}}> yourself !!!</Text></Text>
     </Background>);
 }
 export default Login;

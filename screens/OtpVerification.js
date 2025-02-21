@@ -12,12 +12,12 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons"; 
 import Background from "./Background"; 
 
-export default function OtpVerification() {
+export default function OtpVerification({navigation}) {
   const [otp, setOtp] = useState(["", "", "", ""]); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const route = useRoute();
-  const navigation = useNavigation();
+  //const navigation = useNavigation();
 
   const { email, name } = route.params; 
 
@@ -39,9 +39,7 @@ export default function OtpVerification() {
     const otpString = otp.join(""); 
     if (otpString === dummyOtp) {
       setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000); 
+      navigation.navigate('LangSport'); 
     } else {
       setError("Invalid OTP. Please try again.");
       setOtp(["", "", "", ""]); 
@@ -106,15 +104,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: "bold",
+    //fontWeight: "bold",
     color: "#fff",
-    marginBottom: 20,
+    marginBottom: 20,fontFamily:'Kanit_400Regular'
   },
   description: {
     fontSize: 18,
     color: "#fff",
     marginBottom: 30,
-    textAlign: "center",
+    textAlign: "center",fontFamily:'Kanit_400Regular'
   },
   otpContainer: {
     flexDirection: "row",
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#fff",
     textAlign: "center",
-    marginHorizontal: 10,
+    marginHorizontal: 10,fontFamily:'Kanit_400Regular'
   },
   button: {
     backgroundColor: "#4CAF50",
@@ -144,12 +142,13 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 18,
-    fontWeight: "bold",
+    //fontWeight: "bold",
+    fontFamily:'Kanit_400Regular'
   },
   errorText: {
     color: "red",
     fontSize: 14,
-    marginBottom: 20,
+    marginBottom: 20,fontFamily:'Kanit_400Regular'
   },
   loader: {
     marginTop: 20,
