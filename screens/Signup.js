@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-  Button,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -61,6 +60,21 @@ export default function Signup() {
     <Background >
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollViewContainer}>
         <Text style={styles.title}>Sign Up</Text>
+        <View 
+        style={{
+          height:500,
+          width:300,
+          position:'absolute',
+          backgroundColor:'#ffffff0a',
+          opacity:1,
+          borderRadius:20,
+          borderWidth:5,
+          borderColor:'#ffffff80',
+          justifyContent:'center',
+          alignItems:'center',
+          top:160
+        }}
+        >
         <TextInput
           style={styles.input}
           placeholder="Full Name"
@@ -98,9 +112,7 @@ export default function Signup() {
           <Picker.Item label="Other" value="other" />
         </Picker>
         {formError ? <Text style={styles.error}>{formError}</Text> : null}
-<TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitButtonText}>Submit</Text>
-        </TouchableOpacity>
+
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="date"
@@ -108,7 +120,10 @@ export default function Signup() {
           onConfirm={handleConfirm}
           onCancel={hideDatePicker}
           maximumDate={new Date()} 
-        />
+        /></View>
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+          <Text style={styles.submitButtonText}>Register</Text>
+        </TouchableOpacity>
       </ScrollView>
     </Background>
   );
@@ -117,31 +132,33 @@ export default function Signup() {
 const styles = StyleSheet.create({
   scrollViewContainer: {
     flexGrow: 1,
-    padding: 20,
-    alignItems: "center",
-    justifyContent:'center'
+    padding: 100,
+    width:300
+    //alignItems: "center",
+    //justifyContent:'center'
   },
   title: {
     fontSize: 28,
     //fontWeight: "bold",
-    marginBottom: 30,
+    marginBottom: 0,
     color: "#fff",
-    marginTop: 20,fontFamily:'Kanit_400Regular'
+    marginTop: 0,
+    fontFamily:'Kanit_400Regular'
   },
   input: {
     width: 230,
-    height: 50,
-    marginBottom: 18,
+    height: 60,
+    marginBottom: 20,
     backgroundColor: "rgba(255,255,255,0.2)",
     borderRadius: 8,
-    fontSize: 16,
+    fontSize: 20,
     color: "#fff",
     textAlign: "center",
     paddingHorizontal: 10,
     justifyContent: "center",fontFamily:'Kanit_400Regular'
   },
   dateText: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#fff",
     textAlign: "center",
     lineHeight: 50,fontFamily:'Kanit_400Regular'
@@ -160,16 +177,16 @@ const styles = StyleSheet.create({
     fontFamily:'Kanit_400Regular'
   },
   submitButton: {
-    backgroundColor: "#4CAF50",
-    paddingVertical: 12,
-    paddingHorizontal: 40,
+    backgroundColor: "#0091ff",
     borderRadius: 8,
-    marginTop: 20,
+    marginTop: 20,width:300,height:60,position:'absolute',bottom:100,alignItems:'center',
+    justifyContent:'center'
   },
   submitButtonText: {
     color: "#fff",
     fontSize: 18,
     //fontWeight: "bold",
-    fontFamily:'Kanit_400Regular'
+    fontFamily:'Kanit_400Regular',fontSize:24
+    
   },
 });

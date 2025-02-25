@@ -3,13 +3,18 @@ import Background from "./Background";
 import { Text, View, TouchableOpacity, ImageBackground } from "react-native";
 
 const LangSport = ({ navigation }) => {
-  const [selectedSport, setSelectedSport] = useState(null);
+  const [selectedSports, setSelectedSports] = useState([]);
 
   const handlePress = (sport) => {
-    // Only change selection when a different option is tapped
-    if (selectedSport !== sport) {
-      setSelectedSport(sport);
-    }
+    setSelectedSports((prevSports) => {
+      if (prevSports.includes(sport)) {
+      
+        return prevSports.filter((item) => item !== sport);
+      } else {
+      
+        return [...prevSports, sport];
+      }
+    });
   };
 
   return (
@@ -28,17 +33,17 @@ const LangSport = ({ navigation }) => {
           zIndex: 0,
         }}
       />
-      
+
       {/* Title */}
       <Text
         style={{
-          position: "absolute",
           color: "white",
           fontFamily: "Kanit_400Regular",
           left: 20,
-          top: 150,
+          marginTop: 150,
           fontSize: 36,
           opacity: 0.85,
+          left:-25
         }}
       >
         Select your Sport
@@ -47,91 +52,71 @@ const LangSport = ({ navigation }) => {
       {/* Sport Selection Buttons */}
       <View
         style={{
-          backgroundColor: "transparent",
-          height: 400,
-          width: 280,
-          position: "absolute",
-          left: 35,
+          flex: 1,
+          left:-50,
+          padding:20
+          //justifyContent: "center",
+          //alignItems: "center",
         }}
       >
         {/* Cricket */}
-        <TouchableOpacity onPress={() => handlePress("Cricket")}>
+        <TouchableOpacity onPress={() => handlePress("Cricket")} activeOpacity={0.7}>
           <View
             style={{
-              backgroundColor: selectedSport === "Cricket" ? "#ffffff50" : "#ffffff2a",
+              backgroundColor: selectedSports.includes("Cricket") ? "#00000090" : "#ffffff2a",
               width: 200,
               height: 60,
-              position: "absolute",
               justifyContent: "center",
               alignItems: "center",
               borderWidth: 5,
-              borderColor: "#ffffff80",
+              borderColor: "#ffffff90",
               borderRadius: 40,
+              marginVertical: 10,
             }}
           >
-            <Text
-              style={{
-                fontFamily: "Kanit_400Regular",
-                fontSize: 36,
-                color: "white",
-              }}
-            >
+            <Text style={{ fontFamily: "Kanit_400Regular", fontSize: 36, color: "white" }}>
               +Cricket
             </Text>
           </View>
         </TouchableOpacity>
 
         {/* Football */}
-        <TouchableOpacity onPress={() => handlePress("Football")}>
+        <TouchableOpacity onPress={() => handlePress("Football")} activeOpacity={0.7}>
           <View
             style={{
-              backgroundColor: selectedSport === "Football" ? "#ffffff50" : "#ffffff2a",
+              backgroundColor: selectedSports.includes("Football") ? "#00000090" : "#ffffff2a",
               width: 210,
               height: 60,
-              position: "absolute",
-              top: 100,
               justifyContent: "center",
               alignItems: "center",
               borderWidth: 5,
               borderColor: "#ffffff80",
               borderRadius: 40,
+              marginVertical: 10,
             }}
           >
-            <Text
-              style={{
-                fontFamily: "Kanit_400Regular",
-                fontSize: 36,
-                color: "white",
-              }}
-            >
+            <Text style={{ fontFamily: "Kanit_400Regular", fontSize: 36, color: "white" }}>
               +Football
             </Text>
           </View>
         </TouchableOpacity>
 
         {/* Badminton */}
-        <TouchableOpacity onPress={() => handlePress("Badminton")}>
+        <TouchableOpacity onPress={() => handlePress("Badminton")} activeOpacity={0.7}>
           <View
             style={{
-              backgroundColor: selectedSport === "Badminton" ? "#ffffff50" : "#ffffff2a",
+              backgroundColor: selectedSports.includes("Badminton") ? "#0000009 0" : "#ffffff2a",
               width: 250,
               height: 60,
-              position: "absolute",
-              top: 200,
               justifyContent: "center",
               alignItems: "center",
               borderWidth: 5,
               borderColor: "#ffffff80",
               borderRadius: 40,
+              marginVertical: 10,
             }}
           >
-            <Text
-              style={{
-                fontFamily: "Kanit_400Regular",
-                fontSize: 36,
-                color: "white",
-              }}
-            >
+            <Text style={{ fontFamily: "Kanit_400Regular", fontSize: 36, color: "white" }}>
               +Badminton
             </Text>
           </View>
@@ -142,7 +127,6 @@ const LangSport = ({ navigation }) => {
       <TouchableOpacity
         onPress={() => navigation.navigate("LangSport")}
         style={{
-          opacity: 1.2,
           backgroundColor: "#0091ff",
           width: 300,
           height: 60,
@@ -153,14 +137,7 @@ const LangSport = ({ navigation }) => {
           bottom: 100,
         }}
       >
-        <Text
-          style={{
-            fontFamily: "Kanit_400Regular",
-            fontSize: 24,
-          }}
-        >
-          Next
-        </Text>
+        <Text style={{ fontFamily: "Kanit_400Regular", fontSize: 24 }}>Next</Text>
       </TouchableOpacity>
     </Background>
   );
