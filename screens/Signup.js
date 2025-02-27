@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -101,16 +102,19 @@ export default function Signup() {
           </Text>
         </TouchableOpacity>
         <Text style={styles.sectionTitle}>Select Gender</Text>
-        <Picker
-          selectedValue={gender}
-          style={styles.input}
-          onValueChange={(itemValue) => setGender(itemValue)}
-        >
-          <Picker.Item label="Select Gender" value="" />
-          <Picker.Item label="Male" value="male" />
-          <Picker.Item label="Female" value="female" />
-          <Picker.Item label="Other" value="other" />
-        </Picker>
+        <View style={styles.pickerContainer}>
+  <Picker
+    selectedValue={gender}
+    style={styles.picker}
+    onValueChange={(itemValue) => setGender(itemValue)}
+  >
+    <Picker.Item label="Select Gender" value="" />
+    <Picker.Item label="Male" value="male" />
+    <Picker.Item label="Female" value="female" />
+    <Picker.Item label="Other" value="other" />
+  </Picker>
+</View>
+
         {formError ? <Text style={styles.error}>{formError}</Text> : null}
 
         <DateTimePickerModal
@@ -128,6 +132,8 @@ export default function Signup() {
     </Background>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   scrollViewContainer: {
@@ -150,13 +156,30 @@ const styles = StyleSheet.create({
     height: 60,
     marginBottom: 20,
     backgroundColor: "rgba(255,255,255,0.2)",
-    borderRadius: 8,
+    borderRadius: 12,
     fontSize: 20,
     color: "#fff",
     textAlign: "center",
     paddingHorizontal: 10,
     justifyContent: "center",fontFamily:'Kanit_400Regular'
   },
+
+    pickerContainer: {
+      width: 230,
+      height: 60,
+      marginBottom: 20,
+      backgroundColor: "rgba(255,255,255,0.2)",
+      borderRadius: 12,
+      overflow: "hidden", 
+      justifyContent: "center",
+      fontFamily:'Kanit_400Regular'
+    },
+    picker: {
+      color: "#fff", 
+      fontSize: 20,fontFamily:'Kanit_400Regular'
+    },
+    
+
   dateText: {
     fontSize: 20,
     color: "#fff",
