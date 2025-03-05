@@ -9,21 +9,21 @@ import {
   Alert,
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons"; 
-import Background from "./Background"; 
+import { AntDesign } from "@expo/vector-icons";
+import Background from "./Background";
 
-export default function OtpVerification({navigation}) {
-  const [otp, setOtp] = useState(["", "", "", ""]); 
+export default function OtpVerification({ navigation }) {
+  const [otp, setOtp] = useState(["", "", "", ""]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const route = useRoute();
   //const navigation = useNavigation();
 
-  const { email, name } = route.params; 
+  const { email, name } = route.params;
 
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
 
-  const dummyOtp = "1234"; 
+  const dummyOtp = "1234";
 
   const handleOtpChange = (value, index) => {
     const newOtp = [...otp];
@@ -31,23 +31,23 @@ export default function OtpVerification({navigation}) {
     setOtp(newOtp);
 
     if (value && index < 3) {
-      inputRefs[index + 1].current.focus(); 
+      inputRefs[index + 1].current.focus();
     }
   };
 
   const verifyOtp = () => {
-    const otpString = otp.join(""); 
+    const otpString = otp.join("");
     if (otpString === dummyOtp) {
       setLoading(true);
-      navigation.navigate('LangSport'); 
+      navigation.navigate('LangSport');
     } else {
       setError("Invalid OTP. Please try again.");
-      setOtp(["", "", "", ""]); 
+      setOtp(["", "", "", ""]);
     }
   };
 
   const handleBackPress = () => {
-    navigation.goBack(); 
+    navigation.goBack();
   };
 
   return (
@@ -62,18 +62,18 @@ export default function OtpVerification({navigation}) {
           Please enter the OTP sent to {email}
         </Text>
 
-\        <View style={styles.otpContainer}>
+        \        <View style={styles.otpContainer}>
           {otp.map((digit, index) => (
             <TextInput
               key={index}
               style={styles.input}
               placeholder="-"
-              maxLength={1} 
+              maxLength={1}
               keyboardType="numeric"
               value={digit}
-              onChangeText={(value) => handleOtpChange(value, index)} 
+              onChangeText={(value) => handleOtpChange(value, index)}
               ref={inputRefs[index]}
-              autoFocus={index === 0} 
+              autoFocus={index === 0}
               textAlign="center"
             />
           ))}
@@ -106,13 +106,13 @@ const styles = StyleSheet.create({
     fontSize: 32,
     //fontWeight: "bold",
     color: "#fff",
-    marginBottom: 20,fontFamily:'Kanit_400Regular'
+    marginBottom: 20, fontFamily: 'Kanit_400Regular'
   },
   description: {
     fontSize: 18,
     color: "#fff",
     marginBottom: 30,
-    textAlign: "center",fontFamily:'Kanit_400Regular'
+    textAlign: "center", fontFamily: 'Kanit_400Regular'
   },
   otpContainer: {
     flexDirection: "row",
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#fff",
     textAlign: "center",
-    marginHorizontal: 10,fontFamily:'Kanit_400Regular'
+    marginHorizontal: 10, fontFamily: 'Kanit_400Regular'
   },
   button: {
     backgroundColor: "#4CAF50",
@@ -143,12 +143,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     //fontWeight: "bold",
-    fontFamily:'Kanit_400Regular'
+    fontFamily: 'Kanit_400Regular'
   },
   errorText: {
     color: "red",
     fontSize: 14,
-    marginBottom: 20,fontFamily:'Kanit_400Regular'
+    marginBottom: 20, fontFamily: 'Kanit_400Regular'
   },
   loader: {
     marginTop: 20,
@@ -157,6 +157,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 50,
     left: 10,
-    zIndex: 1, 
+    zIndex: 1,
   },
 });

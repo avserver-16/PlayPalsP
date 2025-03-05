@@ -3,7 +3,7 @@ import {
   View,
   Text,
   TextInput,
-
+ImageBackground,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -59,11 +59,22 @@ export default function Signup() {
   };
   return (
     <Background >
+      <ImageBackground source={require('./asset/Cricket.png')}
+                    style={{
+                        flex: 1,
+                        height: 720,
+                        width: 720,
+                        position: 'absolute',
+                        bottom: 0,
+                        opacity: 0.05,
+                        right: -30, zIndex: 0
+                    }}></ImageBackground>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollViewContainer}>
+        
         <Text style={styles.title}>Sign Up</Text>
         <View 
         style={{
-          height:500,
+          height:600,
           width:300,
           position:'absolute',
           backgroundColor:'#ffffff0a',
@@ -73,7 +84,7 @@ export default function Signup() {
           borderColor:'#ffffff80',
           justifyContent:'center',
           alignItems:'center',
-          top:160
+          top:100
         }}
         >
         <TextInput
@@ -139,7 +150,7 @@ const styles = StyleSheet.create({
   scrollViewContainer: {
     flexGrow: 1,
     padding: 100,
-    width:300
+    width:300,
     //alignItems: "center",
     //justifyContent:'center'
   },
@@ -148,7 +159,7 @@ const styles = StyleSheet.create({
     //fontWeight: "bold",
     marginBottom: 0,
     color: "#fff",
-    marginTop: 0,
+  top:-50,
     fontFamily:'Kanit_400Regular'
   },
   input: {
@@ -202,8 +213,12 @@ const styles = StyleSheet.create({
   submitButton: {
     backgroundColor: "#0091ff",
     borderRadius: 8,
-    marginTop: 20,width:300,height:60,position:'absolute',bottom:100,alignItems:'center',
-    justifyContent:'center'
+    width:300,
+    height:60,
+    alignItems:'center',
+    justifyContent:'center',
+    top:600,
+    right:100
   },
   submitButtonText: {
     color: "#fff",

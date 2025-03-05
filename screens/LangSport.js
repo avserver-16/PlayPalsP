@@ -8,10 +8,10 @@ const LangSport = ({ navigation }) => {
   const handlePress = (sport) => {
     setSelectedSports((prevSports) => {
       if (prevSports.includes(sport)) {
-      
+
         return prevSports.filter((item) => item !== sport);
       } else {
-      
+
         return [...prevSports, sport];
       }
     });
@@ -43,7 +43,7 @@ const LangSport = ({ navigation }) => {
           marginTop: 150,
           fontSize: 36,
           opacity: 0.85,
-          left:-25
+          left: -25
         }}
       >
         Select your Sport
@@ -53,8 +53,8 @@ const LangSport = ({ navigation }) => {
       <View
         style={{
           flex: 1,
-          left:-50,
-          padding:20
+          left: -50,
+          padding: 20
           //justifyContent: "center",
           //alignItems: "center",
         }}
@@ -125,7 +125,7 @@ const LangSport = ({ navigation }) => {
 
       {/* Next Button */}
       <TouchableOpacity
-        onPress={() => navigation.navigate("LangSport")}
+        onPress={() => navigation.navigate("Login")}
         style={{
           backgroundColor: "#0091ff",
           width: 300,

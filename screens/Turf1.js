@@ -3,7 +3,7 @@ import BG2 from './BG2';
 import { View, ScrollView, TouchableOpacity, Text, TextInput, ImageBackground } from 'react-native';
 
 
-const Rentals = () => {
+const Turf1 = () => {
     const today = new Date();
     const [selectedIndex, setSelectedIndex] = useState(null);
     return (
@@ -75,28 +75,26 @@ const Rentals = () => {
                     >
                         <View style={{alignItems:'center',backgroundColor:'white'}}>
                             <ImageBackground
-                            source={require("./asset/cKit.png")}
+                            source={require("./asset/TurfFront.png")}
                             style={{
                                 flex: 1,
-                                height: 120,
-                                width: 93,
+                                height: 100,
+                                width: 150,
                                 position: "absolute",
                                 bottom: 0,
                                 opacity: 1,
-                                left: 50,
-                                top: 0,
+                                left: 20,
+                                top: 20,
                             }}
                         ></ImageBackground>
-                        <TouchableOpacity style={{ zIndex:2,width: 45, height: 30, backgroundColor: '#B8F4AA', borderRadius: 10, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 5, top:0 }}>
-                        <Text style={{ fontSize: 15,color:'black' }}>$100</Text>
+                        <TouchableOpacity style={{zIndex:2, width: 112, height: 43, backgroundColor: 'transparent', borderRadius: 10, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 40, top: 50,borderWidth:1,borderColor:'white' }}>
+                        <Text style={{ fontSize: 20,color:'white' }}>Book</Text>
                     </TouchableOpacity></View>
                         <View style={{ left: 190, top: 20 }}>
-                            <Text style={{ fontSize: 20, fontWeight: '600', color: '#FFFFFF', marginBottom: 5 }}>Cricket Kit</Text>
-                            <Text style={{ fontSize: 15, fontWeight: '400', color: '#FFFFFF', marginBottom: 3 }}>Pickup- Malad</Text>
-                            <Text style={{ fontSize: 15, fontWeight: '400', color: '#FFFFFF', marginBottom: 3 }}>24hrs</Text>
-                            <TouchableOpacity style={{ zIndex:2,width: 60, height: 25, backgroundColor: 'transparent', borderRadius: 10, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 0, top:80, borderWidth:2,borderColor:'#B8F4AA'}}>
-                        <Text style={{ fontSize: 15,color:'white' }}>View</Text>
-                    </TouchableOpacity>
+                            <Text style={{ fontSize: 20, fontWeight: '600', color: '#FFFFFF', marginBottom: 5 }}>Nsf Turf</Text>
+                            <Text style={{ fontSize: 15, fontWeight: '400', color: '#FFFFFF', marginBottom: 3 }}>Satya Nagar</Text>
+                            <Text style={{ fontSize: 15, fontWeight: '400', color: '#FFFFFF', marginBottom: 3 }}>9.00pm-11.0pm</Text>
+                            <Text style={{ fontSize: 15, fontWeight: '400', color: '#FFFFFF', marginBottom: 3 }}>12 max</Text>
                         </View>
                     </View>
                 ))}
@@ -105,4 +103,5 @@ const Rentals = () => {
     );
 }
 
-export default Rentals;
+export default Turf1;
+
