@@ -30,7 +30,7 @@ function DrawerNavigator() {
     <Drawer.Navigator initialRouteName="Homescreen" 
     screenOptions={{
       drawerStyle: {
-        backgroundColor: "rgba(15, 15, 15, 0.9)", // Black with 80% opacity
+        backgroundColor: "rgba(15, 15, 15, 0.91)", // Black with 80% opacity
         width: 250,
       },
       drawerLabelStyle: { color: "white" },
